@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jacks\\source\\repos\\Individual_Project_2\\Individual_Project_2.csproj",
+      "projectUniqueName": "C:\\Users\\jacks\\source\\repos\\Individual_Project_2\\Sem_2-Individual Project\\Project\\Individual_Project_2.csproj",
       "projectName": "Individual_Project_2",
-      "projectPath": "C:\\Users\\jacks\\source\\repos\\Individual_Project_2\\Individual_Project_2.csproj",
+      "projectPath": "C:\\Users\\jacks\\source\\repos\\Individual_Project_2\\Sem_2-Individual Project\\Project\\Individual_Project_2.csproj",
       "packagesPath": "C:\\Users\\jacks\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jacks\\source\\repos\\Individual_Project_2\\obj\\",
+      "outputPath": "C:\\Users\\jacks\\source\\repos\\Individual_Project_2\\Sem_2-Individual Project\\Project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
