@@ -11,4 +11,38 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Helpers\Enums\" />
+    <Folder Include="Helpers\Utilities\" />
+    <Folder Include="Helpers\ViewModels\" />
+    <Folder Include="Models\Account\" />
+    <Folder Include="Models\Budgeting\" />
+    <Folder Include="Models\Dashboard\Category\" />
+    <Folder Include="Models\Dashboard\Debt\" />
+    <Folder Include="Models\Dashboard\Subscription\" />
+    <Folder Include="Models\People\Chats\" />
+    <Folder Include="Models\People\OtherDashboard\" />
+    <Folder Include="Models\People\Permissions\" />
+    <Folder Include="Models\Transaction\" />
+    <Folder Include="Pages\Account\" />
+    <Folder Include="Pages\Budgeting\" />
+    <Folder Include="Pages\Dashboard\Category\" />
+    <Folder Include="Pages\Dashboard\Debt\" />
+    <Folder Include="Pages\Dashboard\Subscription\" />
+    <Folder Include="Pages\People\Chats\" />
+    <Folder Include="Pages\People\OtherDashboard\" />
+    <Folder Include="Pages\People\Permissions\" />
+    <Folder Include="Pages\Transaction\" />
+    <Folder Include="Services\Account\" />
+    <Folder Include="Services\Budgeting\" />
+    <Folder Include="Services\Dashboard\Category\" />
+    <Folder Include="Services\Dashboard\Debt\" />
+    <Folder Include="Services\Dashboard\Subscription\" />
+    <Folder Include="Services\Interfaces\" />
+    <Folder Include="Services\People\Chats\" />
+    <Folder Include="Services\People\OtherDashboard\" />
+    <Folder Include="Services\People\Permissions\" />
+    <Folder Include="Services\Transaction\" />
+  </ItemGroup>
+
 </Project>

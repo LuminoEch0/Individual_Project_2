@@ -1,0 +1,55 @@
+﻿@page
+@model Individual_Project_2.Pages.IndexModel
+
+<h1>People Table</h1>
+
+<!-- Add / Update Form -->
+<form method="post">
+    <input type="hidden" asp-for="NewPerson.Id" />
+    <div>
+        <label>Name:</label>
+        <input asp-for="NewPerson.Name" />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input asp-for="NewPerson.Email" />
+    </div>
+    <div>
+        <label>City:</label>
+        <input asp-for="NewPerson.City" />
+    </div>
+    <button type="submit" formaction="?handler=Add">Add</button>
+    <button type="submit" formaction="?handler=Update">Update</button>
+</form>
+
+<hr />
+
+<!-- Display Table -->
+<table border="1" cellpadding="6" style="border-collapse: collapse; width:100%;">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model.People)
+        {
+            <tr>
+                <td>@person.Id</td>
+                <td>@person.Name</td>
+                <td>@person.Email</td>
+                <td>@person.City</td>
+                <td>
+                    <form method="post">
+                        <button type="submit" formaction="?handler=Edit&id=@person.Id">Edit</button>
+                        <button type="submit" formaction="?handler=Delete&id=@person.Id">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

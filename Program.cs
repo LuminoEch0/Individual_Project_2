@@ -6,8 +6,7 @@ namespace Individual_Project_2
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddRazorPages();
+            builder.Services.AddRazorPages();//Registers Razor Pages services with the dependency injection container.
 
             var app = builder.Build();
 
@@ -19,15 +18,27 @@ namespace Individual_Project_2
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            // Add services to the container.
 
-            app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseHttpsRedirection();// Redirect HTTP requests to HTTPS
 
-            app.MapStaticAssets();
+            app.UseRouting();//Enables routing capabilities in the middleware pipeline
+
+            app.UseAuthorization();//Adds authorization middleware to enforce access control policies.
+
+            app.MapStaticAssets();//- Maps static assets (like CSS, JS, images) to be served from the wwwroot folder.
+
             app.MapRazorPages()
-               .WithStaticAssets();
+               .WithStaticAssets();//Maps Razor Pages endpoints and ensures static assets are available to them.
+
+            //app.MapFallback(context =>
+            //{
+            //    context.Response.Redirect("/Dashboard");
+            //    return Task.CompletedTask;
+            //});
+
+            app.MapFallbackToPage("/Dashboard");
 
             app.Run();
         }

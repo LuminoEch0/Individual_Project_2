@@ -4,11 +4,11 @@ using Microsoft.Data.SqlClient;
 
 namespace Individual_Project_2.Pages
 {
-    public class IndexModel : PageModel
+    public class TransactionsModel : PageModel
     {
         private readonly IConfiguration _configuration;
 
-        public IndexModel(IConfiguration configuration)
+        public TransactionsModel(IConfiguration configuration)
         {
             _configuration = configuration;
         }
