@@ -14,7 +14,7 @@ namespace Individual_Project_2.Models
         public Guid AccountID { get; set; }
 
         [Required, MaxLength(100)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         public decimal TotalOriginalBillAmount { get; set; }
 
