@@ -8,20 +8,20 @@ namespace Individual_Project_2.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly IConfiguration _config;
-
-        public IndexModel(IConfiguration config)
-        {
-            _config = config;
-        }
-
-        public List<Person> People { get; set; } = new List<Person>();
+         public List<Person> People { get; set; } = new List<Person>();
 
         [BindProperty]
         public Person NewPerson { get; set; } = new Person();
 
         [BindProperty]
         public int DeleteId { get; set; }
+
+
+        private readonly IConfiguration _config;
+        public IndexModel(IConfiguration config)
+        {
+            _config = config;
+        }
 
         public void OnGet()
         {
@@ -31,8 +31,7 @@ namespace Individual_Project_2.Pages
 
         public IActionResult OnPostAdd()
         {
-            string connString = _config.GetConnectionString("DefaultConnection");
-
+            string? connString = _config.GetConnectionString("DefaultConnection");
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 string sql = "INSERT INTO People (Name, Email, City) VALUES (@Name, @Email, @City)";
@@ -50,7 +49,7 @@ namespace Individual_Project_2.Pages
 
         public IActionResult OnPostDelete(int id)
         {
-            string connString = _config.GetConnectionString("DefaultConnection");
+            string? connString = _config.GetConnectionString("DefaultConnection");
 
             using (SqlConnection conn = new SqlConnection(connString))
             {
@@ -67,7 +66,7 @@ namespace Individual_Project_2.Pages
 
         public IActionResult OnPostUpdate()
         {
-            string connString = _config.GetConnectionString("DefaultConnection");
+            string? connString = _config.GetConnectionString("DefaultConnection");
 
             using (SqlConnection conn = new SqlConnection(connString))
             {
@@ -87,7 +86,7 @@ namespace Individual_Project_2.Pages
 
         public IActionResult OnPostEdit(int id)
         {
-            string connString = _config.GetConnectionString("DefaultConnection");
+            string? connString = _config.GetConnectionString("DefaultConnection");
 
             using (SqlConnection conn = new SqlConnection(connString))
             {
@@ -116,7 +115,7 @@ namespace Individual_Project_2.Pages
 
         private void LoadPeople()
         {
-            string connString = _config.GetConnectionString("DefaultConnection");
+            string? connString = _config.GetConnectionString("DefaultConnection");
 
             using (SqlConnection conn = new SqlConnection(connString))
             {
@@ -141,9 +140,9 @@ namespace Individual_Project_2.Pages
         public class Person
         {
             public int Id { get; set; }
-            public string Name { get; set; }
-            public string Email { get; set; }
-            public  string City { get; set; }
+            public string? Name { get; set; }
+            public string? Email { get; set; }
+            public  string? City { get; set; }
         }
     }
 }
