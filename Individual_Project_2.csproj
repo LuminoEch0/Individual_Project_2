@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -12,29 +12,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\Enums\" />
     <Folder Include="Helpers\Utilities\" />
     <Folder Include="Helpers\ViewModels\" />
-    <Folder Include="Models\Account\" />
-    <Folder Include="Models\Budgeting\" />
-    <Folder Include="Models\Dashboard\Category\" />
     <Folder Include="Models\Dashboard\Debt\" />
     <Folder Include="Models\Dashboard\Subscription\" />
     <Folder Include="Models\People\Chats\" />
     <Folder Include="Models\People\OtherDashboard\" />
     <Folder Include="Models\People\Permissions\" />
-    <Folder Include="Models\Transaction\" />
-    <Folder Include="Pages\Account\" />
-    <Folder Include="Pages\Budgeting\" />
-    <Folder Include="Pages\Dashboard\Category\" />
+    <Folder Include="Pages\Account\EditAccount\" />
+    <Folder Include="Pages\Account\Login\" />
+    <Folder Include="Pages\Account\Register\" />
     <Folder Include="Pages\Dashboard\Debt\" />
     <Folder Include="Pages\Dashboard\Subscription\" />
     <Folder Include="Pages\People\Chats\" />
     <Folder Include="Pages\People\OtherDashboard\" />
     <Folder Include="Pages\People\Permissions\" />
-    <Folder Include="Pages\Transaction\" />
-    <Folder Include="Services\Account\" />
-    <Folder Include="Services\Budgeting\" />
+    <Folder Include="Services\Account\EditAccount\" />
+    <Folder Include="Services\Account\Login\" />
+    <Folder Include="Services\Account\Register\" />
     <Folder Include="Services\Dashboard\Category\" />
     <Folder Include="Services\Dashboard\Debt\" />
     <Folder Include="Services\Dashboard\Subscription\" />

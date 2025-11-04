@@ -1,3 +1,5 @@
+using Individual_Project_2.Helpers;
+
 namespace Individual_Project_2
 {
     public class Program
@@ -5,6 +7,8 @@ namespace Individual_Project_2
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
             builder.Services.AddRazorPages();//Registers Razor Pages services with the dependency injection container.
 
@@ -19,7 +23,6 @@ namespace Individual_Project_2
             }
 
             // Add services to the container.
-
 
             app.UseHttpsRedirection();// Redirect HTTP requests to HTTPS
 
@@ -38,7 +41,7 @@ namespace Individual_Project_2
             //    return Task.CompletedTask;
             //});
 
-            app.MapFallbackToPage("/Dashboard");
+            app.MapFallbackToPage("/Dashboard/MainDashboard/Dashboard");
 
             app.Run();
         }

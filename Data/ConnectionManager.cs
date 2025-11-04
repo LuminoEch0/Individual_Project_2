@@ -13,7 +13,7 @@ namespace Individual_Project_2.Data
     // Concrete implementation for MSSQL
     public class ConnectionManager : IDbConnectionManager
     {
-        private readonly string _connectionString;
+        private readonly string? _connectionString;
 
         // IConfiguration is typically injected by the C# framework
         public ConnectionManager(IConfiguration configuration)

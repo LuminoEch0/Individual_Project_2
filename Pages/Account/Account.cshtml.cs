@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
-namespace Individual_Project_2.Pages
+namespace Individual_Project_2.Pages.Account
 {
     public class AccountModel : PageModel
     {

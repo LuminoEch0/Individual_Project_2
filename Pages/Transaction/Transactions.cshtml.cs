@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 
-namespace Individual_Project_2.Pages
+namespace Individual_Project_2.Pages.Transaction
 {
     public class TransactionsModel : PageModel
     {
@@ -17,7 +17,7 @@ namespace Individual_Project_2.Pages
 
         public void OnGet()
         {
-            string connectionString = _configuration.GetConnectionString("DefaultConnection");
+            string? connectionString = _configuration.GetConnectionString("DefaultConnection");
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -45,7 +45,7 @@ namespace Individual_Project_2.Pages
     public class TestItem
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
     }
 }
