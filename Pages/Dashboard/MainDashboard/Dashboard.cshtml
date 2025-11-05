@@ -2,32 +2,13 @@
 @model Individual_Project_2.Pages.Dashboard.MainDashboard.DashboardModel
 @{
 }
-@* <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary">Overview</button>
-    <button type="button" class="btn btn-secondary">Subscriptions</button>
-    <button type="button" class="btn btn-secondary">Debts</button>
-</div>
-
-@foreach (var bankAccount in Model.BankAccounts)
-{
-    <div class="card mt-4">
-        <div class="card-header">
-            @bankAccount.AccountName
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Balance: @bankAccount.CurrentBalance.ToString("C")</h5>
-            <p class="card-text">Account Type: @bankAccount.AccountID</p>
-            <a href="#" class="btn btn-primary">View Transactions</a>
-        </div>
-    </div>
-} *@
-<a asp-page="/Dashboard/MainDashboard/create" class="btn btn-primary">Create</a>
+<a asp-page="/Dashboard/MainDashboard/create" asp-route-id="" class="btn btn-primary">Create</a>
 
 <table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col">AccountID</th>
-            <th scope="col">UserID</th>
+            <th scope="col" hidden>AccountID</th>
+            <th scope="col" hidden>UserID</th>
             <th scope="col">CurrentBalance</th>
             <th scope="col">AccountName</th>
             <th scope="col">function</th>
@@ -37,13 +18,13 @@
         @foreach (var account in Model.BankAccounts)
         {
             <tr>
-                <td>@account.AccountID</td>
-                <td>@account.UserID</td>
+                <td hidden>@account.AccountID</td>
+                <td hidden>@account.UserID</td>
                 <td>@account.CurrentBalance.ToString("C")</td>
                 <td>@account.AccountName</td>
                 <td>
                     <a asp-page="/Dashboard/MainDashboard/edit" asp-route-id="@account.AccountID" class="btn btn-primary">Edit</a>
-                    <a asp-page="/Dashboard/MainDashboard/delete?@account.AccountID" class="btn btn-danger">Delete</a>
+                    <a asp-page="/Dashboard/MainDashboard/delete" asp-route-id="@account.AccountID" class="btn btn-danger">Delete</a>
                     <a asp-page="/Dashboard/Category/Category" asp-route-id="@account.AccountID" class="btn btn-success">View</a>
                 </td>
             </tr>

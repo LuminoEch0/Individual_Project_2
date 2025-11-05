@@ -25,6 +25,17 @@ namespace Individual_Project_2.Pages.Dashboard.MainDashboard
             AccountDetails = account;
             return Page();
         }
+        public IActionResult OnPost(Guid id)
+        {
+            var account = _config.GetBankAccountById(id);
+            if (account == null)
+            {
+                return NotFound();
+            }
+            AccountDetails = account;
+            _config.DeleteBankAccount(account);
+            return RedirectToPage("/Dashboard/MainDashboard/Dashboard");
+        }
     }
 }
 

@@ -3,6 +3,7 @@ using Individual_Project_2.Models.Account;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Identity.Client;
+//using DataAccessLayer;
 
 namespace Individual_Project_2.Helpers
 {
@@ -13,6 +14,7 @@ namespace Individual_Project_2.Helpers
         public BankAccountDBAccess(IConfiguration config) 
         {
             connectionString = config.GetConnectionString("DefaultConnection");
+            //BankAccountRepo c = new BankAccountRepo();
         }
         public List<BankAcc> GetBankAccounts()
         {
@@ -103,6 +105,16 @@ namespace Individual_Project_2.Helpers
             cmd.Parameters.AddWithValue("@balance", account.CurrentBalance);
             cmd.Parameters.AddWithValue("@name", account.AccountName);
 
+            cmd.ExecuteNonQuery();
+        }
+        public void DeleteBankAccount(BankAcc account)
+        {
+            using var conn = new SqlConnection(connectionString);
+            conn.Open();
+            string sql = "DELETE FROM BankAccount WHERE AccountID = @id";
+            var cmd = new SqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@id", account.AccountID);
             cmd.ExecuteNonQuery();
         }
     }

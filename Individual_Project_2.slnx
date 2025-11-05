@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="../DataAccessLayer/DataAccessLayer.csproj" Id="fa092644-c3ee-450e-b641-12128a9473b4" />
   <Project Path="Individual_Project_2.csproj" />
 </Solution>

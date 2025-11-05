@@ -40,4 +40,8 @@
     <Folder Include="Services\Transaction\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
+  </ItemGroup>
+
 </Project>

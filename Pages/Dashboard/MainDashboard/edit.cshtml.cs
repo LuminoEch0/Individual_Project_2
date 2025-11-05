@@ -31,33 +31,26 @@ namespace Individual_Project_2.Pages.Dashboard.MainDashboard
             }
             AccountDetails = account;
             return Page();
-            
         }
        
         public IActionResult OnPost(Guid id)
         {
             var account = _config.GetBankAccountById(id);
             if (account == null)
-
             {
                 return NotFound();
             }
-
             account.AccountName = AccountDetails.AccountName;
-            Console.WriteLine($"Loaded account: {AccountDetails.AccountName}, {AccountDetails.CurrentBalance}");
+            //Console.WriteLine($"Loaded account: {AccountDetails.AccountName}, {AccountDetails.CurrentBalance}");
 
 
             if (AmountToAdd != 0)
             {
                 account.UpdateBalance(AmountToAdd);
             }
-
             _config.UpdateBankAccount(account);
-
             return RedirectToPage("/Dashboard/MainDashboard/Dashboard");
 
         }
-
-
     }
 }
