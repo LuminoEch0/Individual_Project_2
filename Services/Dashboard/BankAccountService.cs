@@ -19,9 +19,9 @@ namespace Individual_Project_2.Services.Dashboard
             return BankAccountMapper.ToModelList(dtos);
         }
 
-        public BankAccount? GetAccountById(Guid id)
+        public BankAccount? GetAccountById(Guid accountId)
         {
-            var dto = _repository.GetBankAccountById(id);
+            var dto = _repository.GetBankAccountById(accountId);
             return dto == null ? null : BankAccountMapper.ToModel(dto);
         }
 
@@ -34,11 +34,22 @@ namespace Individual_Project_2.Services.Dashboard
         public void DeleteAccount(Guid accountId)
         {
             var account = GetAccountById(accountId);
-            if (account != null && account.CurrentBalance != 0)
-            {
-                throw new InvalidOperationException("Cannot delete account with a non-zero balance.");
-            }
             _repository.DeleteBankAccount(accountId);
+        }
+        public void CreateAccount(BankAccount account)
+        {
+            if (account.CurrentBalance < 0)
+            {
+                throw new ArgumentException("Initial balance cannot be negative.");
+            }
+            if (string.IsNullOrWhiteSpace(account.AccountName))
+            {
+                throw new ArgumentException("Account name cannot be empty.");
+            }
+
+            account.UserID = Guid.Parse("0588CE68-E40A-402E-86E4-A902265B2A9B");
+            var dto = BankAccountMapper.ToDTO(account);
+            _repository.CreateBankAccount(dto);
         }
     }
 }

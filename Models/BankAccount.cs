@@ -17,6 +17,14 @@ namespace Individual_Project_2.Models
         public decimal CurrentBalance { get; private set; } = 0.00m;
 
         public BankAccount() { }
+
+        public BankAccount(string? accountName, decimal currentBalance)
+        {
+            AccountID = Guid.NewGuid();
+            UserID = Guid.NewGuid();
+            AccountName = accountName;
+            CurrentBalance = currentBalance;
+        }
         public BankAccount(Guid accountId, Guid userId, string? accountName, decimal currentBalance)
         {
             AccountID = accountId;
