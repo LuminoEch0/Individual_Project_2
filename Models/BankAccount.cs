@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Individual_Project_2.Models.Dashboard.MainDashboard
+namespace Individual_Project_2.Models
 {
     public class BankAccount
     {
@@ -11,10 +11,24 @@ namespace Individual_Project_2.Models.Dashboard.MainDashboard
 
         [Required]
         [StringLength(100)]
-        public required string AccountName { get; set; }
+        public string? AccountName { get; set; }
 
         [Column(TypeName = "decimal(18, 2)")]
         public decimal CurrentBalance { get; private set; } = 0.00m;
+
+        public BankAccount() { }
+        public BankAccount(Guid accountId, Guid userId, string? accountName, decimal currentBalance)
+        {
+            AccountID = accountId;
+            UserID = userId;
+            AccountName = accountName;
+            CurrentBalance = currentBalance;
+        }
+        public BankAccount(decimal currentBalance)
+        {
+            currentBalance = CurrentBalance;
+        }
+
         public void UpdateBalance(decimal amount)
         {
             CurrentBalance += amount;

@@ -1,6 +1,6 @@
 using Individual_Project_2.Helpers;
 using Individual_Project_2.Models;
-using Individual_Project_2.Models.Dashboard.MainDashboard;
+using Individual_Project_2.Services.Dashboard;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
@@ -8,23 +8,22 @@ using Microsoft.Data.SqlClient;
 namespace Individual_Project_2.Pages.Dashboard.MainDashboard
 {
     public class editModel : PageModel
-    {        
-        public editModel(IConfiguration config)
+    {
+        private readonly BankAccountService _accountService;
+        public editModel(BankAccountService accountService)
         {
-            _config = new BankAccountDBAccess(config);
+            _accountService = accountService;
         }
-        private readonly BankAccountDBAccess _config;
-
         [BindProperty]
         required
-        public BankAcc AccountDetails { get; set; }
+        public BankAccount AccountDetails { get; set; }
 
         [BindProperty]
         public decimal AmountToAdd { get; set; }
 
         public IActionResult OnGet(Guid id)
         {
-            var account = _config.GetBankAccountById(id);
+            var account = _accountService.GetAccountById(id);
             if(account == null)
             {
                 return NotFound();
@@ -35,7 +34,7 @@ namespace Individual_Project_2.Pages.Dashboard.MainDashboard
        
         public IActionResult OnPost(Guid id)
         {
-            var account = _config.GetBankAccountById(id);
+            var account = _accountService.GetAccountById(id);
             if (account == null)
             {
                 return NotFound();
@@ -48,7 +47,7 @@ namespace Individual_Project_2.Pages.Dashboard.MainDashboard
             {
                 account.UpdateBalance(AmountToAdd);
             }
-            _config.UpdateBankAccount(account);
+            _accountService.UpdateAccountDetails(account);
             return RedirectToPage("/Dashboard/MainDashboard/Dashboard");
 
         }

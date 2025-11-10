@@ -2,21 +2,22 @@ using Individual_Project_2.Helpers;
 using Individual_Project_2.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Individual_Project_2.Services.Dashboard;
 
 namespace Individual_Project_2.Pages.Dashboard.MainDashboard
 {
     public class deleteModel : PageModel
     {
+        private readonly BankAccountService _accountService;
 
-        public deleteModel(IConfiguration config)
+        public deleteModel(BankAccountService accountService)
         {
-            _config = new BankAccountDBAccess(config);
+            _accountService = accountService;
         }
-        private readonly BankAccountDBAccess _config;
-        public BankAcc? AccountDetails { get; set; }
+        public BankAccount? AccountDetails { get; set; }
         public IActionResult OnGet(Guid id)
         {
-            var account = _config.GetBankAccountById(id);
+            var account = _accountService.GetAccountById(id);
             if (account == null)
 
             {
@@ -27,13 +28,13 @@ namespace Individual_Project_2.Pages.Dashboard.MainDashboard
         }
         public IActionResult OnPost(Guid id)
         {
-            var account = _config.GetBankAccountById(id);
+            var account = _accountService.GetAccountById(id);
             if (account == null)
             {
                 return NotFound();
             }
             AccountDetails = account;
-            _config.DeleteBankAccount(account);
+            _accountService.DeleteAccount(id);
             return RedirectToPage("/Dashboard/MainDashboard/Dashboard");
         }
     }

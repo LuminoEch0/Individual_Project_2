@@ -15,6 +15,7 @@
     <Folder Include="Helpers\Utilities\" />
     <Folder Include="Helpers\ViewModels\" />
     <Folder Include="Models\Dashboard\Debt\" />
+    <Folder Include="Models\Dashboard\MainDashboard\" />
     <Folder Include="Models\Dashboard\Subscription\" />
     <Folder Include="Models\People\Chats\" />
     <Folder Include="Models\People\OtherDashboard\" />
@@ -27,12 +28,7 @@
     <Folder Include="Pages\People\Chats\" />
     <Folder Include="Pages\People\OtherDashboard\" />
     <Folder Include="Pages\People\Permissions\" />
-    <Folder Include="Services\Account\EditAccount\" />
-    <Folder Include="Services\Account\Login\" />
-    <Folder Include="Services\Account\Register\" />
-    <Folder Include="Services\Dashboard\Category\" />
-    <Folder Include="Services\Dashboard\Debt\" />
-    <Folder Include="Services\Dashboard\Subscription\" />
+    <Folder Include="Services\Account\" />
     <Folder Include="Services\Interfaces\" />
     <Folder Include="Services\People\Chats\" />
     <Folder Include="Services\People\OtherDashboard\" />

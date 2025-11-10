@@ -1,4 +1,6 @@
+using DataAccessLayer.Repositories;
 using Individual_Project_2.Helpers;
+using DataAccessLayer;
 
 namespace Individual_Project_2
 {
@@ -8,9 +10,17 @@ namespace Individual_Project_2
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
             builder.Services.AddRazorPages();//Registers Razor Pages services with the dependency injection container.
+
+            // 1. The Core: Manages the connection string and provides open connections. (Singleton or Scoped is fine here)
+            builder.Services.AddSingleton<ConnectionManager>();
+
+            // 2. The Repository: Executes raw SQL (BankAccount) and depends on the ConnectionManager.
+            // Assuming you have implemented BankAccountRepository similar to CategoryRepository.
+            builder.Services.AddScoped<BankAccountRepository>();
+
+            builder.Services.AddScoped<Individual_Project_2.Services.Dashboard.BankAccountService>();
 
             var app = builder.Build();
 
@@ -40,6 +50,8 @@ namespace Individual_Project_2
             //    context.Response.Redirect("/Dashboard");
             //    return Task.CompletedTask;
             //});
+
+
 
             app.MapFallbackToPage("/Dashboard/MainDashboard/Dashboard");
 
