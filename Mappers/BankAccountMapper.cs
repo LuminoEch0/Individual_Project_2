@@ -6,19 +6,19 @@ namespace Individual_Project_2.Mappers
 {
     public static class BankAccountMapper
     {
-        public static BankAccount ToModel(BankAccountDTO dto)
+        public static BankAccountModel ToModel(BankAccountDTO dto)
         {
-            return new BankAccount(
+            return new BankAccountModel(
                 dto.AccountID,
                 dto.UserID,
                 dto.AccountName,
                 dto.CurrentBalance);
         }
-        public static List<BankAccount> ToModelList(IEnumerable<BankAccountDTO> dtos)
+        public static List<BankAccountModel> ToModelList(IEnumerable<BankAccountDTO> dtos)
         {
             return dtos.Select(ToModel).ToList();
         }
-        public static BankAccountDTO ToDTO(BankAccount model)
+        public static BankAccountDTO ToDTO(BankAccountModel model)
         {
             return new BankAccountDTO
             {

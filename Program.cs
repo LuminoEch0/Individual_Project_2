@@ -19,8 +19,12 @@ namespace Individual_Project_2
             // 2. The Repository: Executes raw SQL (BankAccount) and depends on the ConnectionManager.
             // Assuming you have implemented BankAccountRepository similar to CategoryRepository.
             builder.Services.AddScoped<BankAccountRepository>();
+            builder.Services.AddScoped<CategoryRepository>();
+
 
             builder.Services.AddScoped<Individual_Project_2.Services.Dashboard.BankAccountService>();
+            builder.Services.AddScoped<Individual_Project_2.Services.Dashboard.CategoryService>();
+
 
             var app = builder.Build();
 

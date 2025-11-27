@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Individual_Project_2.Models
 {
-    public class BankAccount
+    public class BankAccountModel
     {
         public Guid AccountID { get; set; } //pk
 
@@ -16,23 +16,23 @@ namespace Individual_Project_2.Models
         [Column(TypeName = "decimal(18, 2)")]
         public decimal CurrentBalance { get; private set; } = 0.00m;
 
-        public BankAccount() { }
+        public BankAccountModel() { }
 
-        public BankAccount(string? accountName, decimal currentBalance)
+        public BankAccountModel(string? accountName, decimal currentBalance)
         {
             AccountID = Guid.NewGuid();
             UserID = Guid.NewGuid();
             AccountName = accountName;
             CurrentBalance = currentBalance;
         }
-        public BankAccount(Guid accountId, Guid userId, string? accountName, decimal currentBalance)
+        public BankAccountModel(Guid accountId, Guid userId, string? accountName, decimal currentBalance)
         {
             AccountID = accountId;
             UserID = userId;
             AccountName = accountName;
             CurrentBalance = currentBalance;
         }
-        public BankAccount(decimal currentBalance)
+        public BankAccountModel(decimal currentBalance)
         {
             currentBalance = CurrentBalance;
         }

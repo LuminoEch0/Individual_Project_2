@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Individual_Project_2.Mappers;
 
-namespace Individual_Project_2.Pages.Dashboard.Category
+namespace Individual_Project_2.Pages.Dashboard.MainDashboard
 {
     public class createModel : PageModel
     {

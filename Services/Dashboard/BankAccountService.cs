@@ -13,19 +13,19 @@ namespace Individual_Project_2.Services.Dashboard
             _repository = repository;
         }
 
-        public List<BankAccount> GetAllBankAccounts()
+        public List<BankAccountModel> GetAllBankAccounts()
         {
             var dtos = _repository.GetBankAccounts();
             return BankAccountMapper.ToModelList(dtos);
         }
 
-        public BankAccount? GetAccountById(Guid accountId)
+        public BankAccountModel? GetAccountById(Guid accountId)
         {
             var dto = _repository.GetBankAccountById(accountId);
             return dto == null ? null : BankAccountMapper.ToModel(dto);
         }
 
-        public void UpdateAccountDetails(BankAccount account)
+        public void UpdateAccountDetails(BankAccountModel account)
         {
             var dto = BankAccountMapper.ToDTO(account);
             _repository.UpdateBankAccount(dto);
@@ -36,7 +36,7 @@ namespace Individual_Project_2.Services.Dashboard
             var account = GetAccountById(accountId);
             _repository.DeleteBankAccount(accountId);
         }
-        public void CreateAccount(BankAccount account)
+        public void CreateAccount(BankAccountModel account)
         {
             if (account.CurrentBalance < 0)
             {

@@ -4,50 +4,52 @@ using Individual_Project_2.Services.Dashboard;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
-
-namespace Individual_Project_2.Pages.Dashboard.MainDashboard
+namespace Individual_Project_2.Pages.Dashboard.Category
 {
     public class editModel : PageModel
     {
-        private readonly BankAccountService _accountService;
-        public editModel(BankAccountService accountService)
+        private readonly CategoryService _accountService;
+        public editModel(CategoryService accountService)
         {
             _accountService = accountService;
         }
         [BindProperty]
         required
-        public BankAccountModel AccountDetails { get; set; }
+        public CategoryModel CategoryDetails { get; set; }
+
+        //[BindProperty]
+        //public decimal AmountAllocated { get; set; }
 
         [BindProperty]
-        public decimal AmountToAdd { get; set; }
+        public decimal AmountToAllocate { get; set; }
 
         public IActionResult OnGet(Guid id)
         {
-            var account = _accountService.GetAccountById(id);
+            var account = _accountService.GetCategoryById(id);
             if(account == null)
             {
                 return NotFound();
             }
-            AccountDetails = account;
+            CategoryDetails = account;
             return Page();
         }
        
         public IActionResult OnPost(Guid id)
         {
-            var account = _accountService.GetAccountById(id);
+            var account = _accountService.GetCategoryById(id);
             if (account == null)
             {
                 return NotFound();
             }
-            account.AccountName = AccountDetails.AccountName;
+            account.CategoryName = CategoryDetails.CategoryName;
             //Console.WriteLine($"Loaded account: {AccountDetails.AccountName}, {AccountDetails.CurrentBalance}");
 
 
-            if (AmountToAdd != 0)
+            if (AmountToAllocate != 0)
             {
-                account.UpdateBalance(AmountToAdd);
+                account.UpdateAllocatedAmount(AmountToAllocate);
             }
-            _accountService.UpdateAccountDetails(account);
+            _accountService.UpdateCategoryDetails(account);
             return RedirectToPage("/Dashboard/MainDashboard/Dashboard");
 
         }

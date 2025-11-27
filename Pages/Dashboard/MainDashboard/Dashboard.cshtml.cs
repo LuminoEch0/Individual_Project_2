@@ -13,7 +13,7 @@ namespace Individual_Project_2.Pages.Dashboard.MainDashboard
         {
             _accountService = accountService;
         }
-        public List<BankAccount> BankAccounts { get; set; } = new List<BankAccount>();
+        public List<BankAccountModel> BankAccounts { get; set; } = new List<BankAccountModel>();
 
         public void OnGet()
         {

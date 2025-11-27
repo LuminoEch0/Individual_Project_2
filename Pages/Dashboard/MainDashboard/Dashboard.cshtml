@@ -1,6 +1,8 @@
 ﻿@page
 @model Individual_Project_2.Pages.Dashboard.MainDashboard.DashboardModel
 @{
+        ViewData["Title"] = "Dashboard";
+
 }
 <a asp-page="/Dashboard/MainDashboard/create" asp-route-id="" class="btn btn-primary">Create</a>
 
@@ -25,7 +27,7 @@
                 <td>
                     <a asp-page="/Dashboard/MainDashboard/edit" asp-route-id="@account.AccountID" class="btn btn-primary">Edit</a>
                     <a asp-page="/Dashboard/MainDashboard/delete" asp-route-id="@account.AccountID" class="btn btn-danger">Delete</a>
-                    <a asp-page="/Dashboard/Category/Category" asp-route-id="@account.AccountID" class="btn btn-success">View</a>
+                    <a asp-page="/Dashboard/Category/CategoryPage" asp-route-id="@account.AccountID" class="btn btn-success">View</a>
                 </td>
             </tr>
         }

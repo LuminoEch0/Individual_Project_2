@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Individual_Project_2.Services.Dashboard;
 
-namespace Individual_Project_2.Pages.Dashboard.MainDashboard
+namespace Individual_Project_2.Pages.Dashboard.Category
 {
     public class deleteModel : PageModel
     {
